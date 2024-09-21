@@ -1,0 +1,18 @@
+# Different Time Zones
+
+def Time_Zone():
+    server_hour, server_minute, server_second = map(int, server_time.split(":"))
+    current_hour, current_minute, current_second = map(int, current_time.split(":"))
+
+    diff_hour = server_hour - current_hour - 5
+    diff_minute = server_minute - current_minute
+    diff_second = server_second - current_second
+
+    if (diff_hour <= 0 and diff_minute <= 0 and diff_second <= 0) and (current_hour-5 >= server_hour):
+        print("See you on the next Pear Event!")
+    else:
+        print("{}:{}:{}".format(diff_hour, diff_minute, diff_second))
+
+server_time = input("Enter the server time (HH:MM:SS)! ")
+current_time = input("Enter the current time (HH:MM:SS)! ")
+result = Time_Zone()
